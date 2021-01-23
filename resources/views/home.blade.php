@@ -1,5 +1,5 @@
 @extends('layouts.adminlte.master', ['noBackButton' => true])
-@section('top-bar-header', 'Header')
+@section('top-bar-header', 'Home')
 
 @section('content')
 @endsection

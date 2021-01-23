@@ -2,12 +2,17 @@
 
 namespace App\Providers;
 
+use Illuminate\Http\Request;
+use Illuminate\Support\ServiceProvider;
+
 use App\Actions\Fortify\CreateNewUser;
 use App\Actions\Fortify\ResetUserPassword;
 use App\Actions\Fortify\UpdateUserPassword;
 use App\Actions\Fortify\UpdateUserProfileInformation;
-use Illuminate\Support\ServiceProvider;
+use App\Models\User;
+
 use Laravel\Fortify\Fortify;
+use Hash;
 
 class FortifyServiceProvider extends ServiceProvider
 {

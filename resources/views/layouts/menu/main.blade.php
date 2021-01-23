@@ -1,7 +1,7 @@
 @if (Auth::check())
 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
     @include('layouts.menu.dashboard')
-    @include('layouts.menu.users')
+    {{-- @include('layouts.menu.users') --}}
 </ul>
 @else
 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
