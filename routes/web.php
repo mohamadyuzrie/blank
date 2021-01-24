@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\UsersController;
+use App\Http\Controllers\SuppliersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,4 +20,6 @@ Route::get('/', function () {
 
 Route::middleware(['auth'])->group(function () {
     Route::view('home', 'home')->name('home');
+
+    Route::resource('suppliers', SuppliersController::class);
 });
