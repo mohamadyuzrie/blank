@@ -2,10 +2,7 @@
 @section('top-bar-header', 'Supplier Edit')
 
 @section('content')
-
-<form action="{{ route('suppliers.update', $resource->id) }}" method="POST">
-    <input type="hidden" name="_method" value="PUT">
-    @csrf
+{!! Form::model($resource, ['url' => route('suppliers.update', $resource->id), 'method' => 'PUT']) !!}
     <div class="card">
         <div class="card-body">
             @include('suppliers.content')
@@ -17,8 +14,9 @@
             </div>
         </div>
     </div>
-</form>
+{!! Form::close() !!}
 @endsection
 
 @push('scripts')
+    @include('suppliers.js')
 @endpush

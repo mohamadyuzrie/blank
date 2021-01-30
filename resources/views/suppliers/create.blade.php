@@ -2,8 +2,7 @@
 @section('top-bar-header', 'Supplier Create')
 
 @section('content')
-<form action="{{ route('suppliers.store') }}" method="POST">
-    @csrf
+{!! Form::open(['url' => route('suppliers.store'), 'method' => 'POST']) !!}
     <div class="card">
         <div class="card-body">
             @include('suppliers.content')
@@ -15,8 +14,9 @@
             </div>
         </div>
     </div>
-</form>
+{!! Form::close() !!}
 @endsection
 
 @push('scripts')
+    @include('suppliers.js')
 @endpush

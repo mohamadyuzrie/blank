@@ -16,5 +16,6 @@ class Supplier extends Model
         'tel_no',
         'fax_no',
         'email',
+        'bank',
     ];
 }

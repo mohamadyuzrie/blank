@@ -47,6 +47,7 @@ class SuppliersController extends Controller
             'tel_no' => $request['tel_no'],
             'fax_no' => $request['fax_no'],
             'email' => $request['email'],
+            'bank' => $request['bank'],
         ]);
 
         return redirect()->route('suppliers.edit', $resource->id);
@@ -94,6 +95,7 @@ class SuppliersController extends Controller
             'tel_no' => $request['tel_no'],
             'fax_no' => $request['fax_no'],
             'email' => $request['email'],
+            'bank' => $request['bank'],
         ]);
 
         return redirect()->back();

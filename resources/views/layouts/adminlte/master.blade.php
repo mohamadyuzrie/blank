@@ -17,6 +17,8 @@
     <!-- Our CSS -->
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('css/dataTables.bootstrap4.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/select2.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/select2-bootstrap4.min.css') }}">
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -71,6 +73,7 @@
 
     {{-- Our JS --}}
     <script src="{{ mix('js/app.js') }}"></script>
+    <script src="{{ asset('js/select2.min.js') }}"></script>
     @stack('scripts-include')
     <script>
         $(function() {
