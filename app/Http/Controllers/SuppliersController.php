@@ -125,6 +125,11 @@ class SuppliersController extends Controller
 
         $pdf = PDF::loadView('suppliers.printout', $data);
 
+        $header = view()->make('layouts.printout.default-header', $data)->render();
+        $pdf->setOption('header-html', $header);
+        $pdf->setOption('header-spacing', '4');
+        $pdf->setOption('margin-top', '50mm');
+
         $output_filename = "{$resource->code}.pdf";
         return $pdf->inline($output_filename);
     }
