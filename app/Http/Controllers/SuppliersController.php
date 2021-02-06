@@ -119,6 +119,10 @@ class SuppliersController extends Controller
 
     public function print(Request $request, $id)
     {
+        // $number_string = "1,123.568";
+        // $parsed_number = parse_numbers($number_string);
+        // dd($parsed_number, floatval($number_string), display_numbers($parsed_number, 2));
+
         $resource = Supplier::find($id);
 
         $data = [];
