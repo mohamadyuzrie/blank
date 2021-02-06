@@ -18,5 +18,5 @@ mix.copy('node_modules/@ttskch/select2-bootstrap4-theme/dist/select2-bootstrap4.
 // using datatables
 mix.copy('node_modules/datatables.net-bs4/css/dataTables.bootstrap4.min.css', 'public/css/dataTables.bootstrap4.min.css');
 
-mix.js('resources/js/app.js', 'public/js')
-    .sass('resources/sass/app.scss', 'public/css');
+mix.js('resources/js/app.js', 'public/js').sass('resources/sass/app.scss', 'public/css');
+mix.sass('resources/sass/report.scss', 'public/css');

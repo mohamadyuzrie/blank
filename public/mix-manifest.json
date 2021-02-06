@@ -1,6 +1,7 @@
 {
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
+    "/css/report.css": "/css/report.css",
     "/js/select2.min.js": "/js/select2.min.js",
     "/css/select2.min.css": "/css/select2.min.css",
     "/css/select2-bootstrap4.min.css": "/css/select2-bootstrap4.min.css",

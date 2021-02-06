@@ -21,5 +21,6 @@ Route::get('/', function () {
 Route::middleware(['auth'])->group(function () {
     Route::view('home', 'home')->name('home');
 
+    Route::post('suppliers/{id}/print', [SuppliersController::class, 'print'])->name('suppliers.print');
     Route::resource('suppliers', SuppliersController::class);
 });

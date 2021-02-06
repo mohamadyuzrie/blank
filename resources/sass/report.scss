@@ -1,0 +1,16 @@
+// $font-family-sans-serif: "Nunito", sans-serif;
+$font-family-sans-serif: "Poppins", sans-serif;
+$font-size-base: 0.9rem;
+$line-height-base: 1.6;
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap-reboot';
+@import '~bootstrap/scss/_tables';
+@import '~bootstrap/scss/_utilities';
+
+/** prevent overlapping thead and tbody from second page onwards **/
+table { page-break-inside:auto; }
+tr    { page-break-inside:avoid; page-break-after:auto; }
+td, th { page-break-inside: avoid; }
+thead { display:table-header-group; }
+tfoot { display:table-footer-group; }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Supplier;
+use PDF;
 
 class SuppliersController extends Controller
 {
@@ -113,5 +114,18 @@ class SuppliersController extends Controller
         $resource->delete();
 
         return redirect()->route('suppliers.index');
+    }
+
+    public function print(Request $request, $id)
+    {
+        $resource = Supplier::find($id);
+
+        $data = [];
+        $data['resource'] = $resource;
+
+        $pdf = PDF::loadView('suppliers.printout', $data);
+
+        $output_filename = "{$resource->code}.pdf";
+        return $pdf->inline($output_filename);
     }
 }

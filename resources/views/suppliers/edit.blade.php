@@ -2,6 +2,16 @@
 @section('top-bar-header', 'Supplier Edit')
 
 @section('content')
+<div class="form-group row">
+    <div class="col-3">
+        <a href="{{ route('suppliers.print', $resource->id) }}" data-method="post" target="_blank" class="btn btn-primary px-5">
+            Print
+        </a>
+    </div>
+    <div class="col-3"></div>
+    <div class="col-3"></div>
+    <div class="col-3"></div>
+</div>
 {!! Form::model($resource, ['url' => route('suppliers.update', $resource->id), 'method' => 'PUT']) !!}
     <div class="card">
         <div class="card-body">
