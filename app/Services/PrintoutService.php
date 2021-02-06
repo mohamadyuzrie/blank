@@ -30,4 +30,16 @@ class Printout
 
         return $pdf;
     }
+
+    public static function standardFooter($print_date, $footer_height = '15mm')
+    {
+        return [
+            'footer-left' => "Print Date {$print_date}",
+            'footer-line' => true,
+            'footer-font-size' => 8,
+            'footer-font-name' => 'sans-serif',
+            'footer-right' => "Page [page] from [topage]",
+            'margin-bottom' => $footer_height,
+        ];
+    }
 }
