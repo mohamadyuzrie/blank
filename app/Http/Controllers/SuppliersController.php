@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Supplier;
+use App\Services\PrintoutService;
 use PDF, Carbon\Carbon;
 
 class SuppliersController extends Controller
@@ -123,24 +124,9 @@ class SuppliersController extends Controller
         $data = [];
         $data['resource'] = $resource;
 
-        $pdf = PDF::loadView('suppliers.printout', $data);
+        $pdf = PrintoutService::generate('suppliers.printout', $data, 'layouts.printout.default-header');
+        $pdf = PrintoutService::useStandardFooter($pdf, Carbon::now()->format('d/m/Y'));
 
-        // set header
-        $header = view()->make('layouts.printout.default-header', $data)->render();
-        $pdf->setOption('header-html', $header);
-        $pdf->setOption('header-spacing', '4');
-        $pdf->setOption('margin-top', '50mm');
-
-        // set footer
-        $print_date = Carbon::now()->format('d/m/Y');
-        $pdf->setOption('footer-left', "Print Date {$print_date}");
-        $pdf->setOption('footer-line', true);
-        $pdf->setOption('footer-font-size', 8);
-        $pdf->setOption('footer-font-name', 'sans-serif');
-        $pdf->setOption('footer-right', "Page [page] from [topage]");
-        $pdf->setOption('margin-bottom', '15mm');
-
-        $output_filename = "{$resource->code}.pdf";
-        return $pdf->inline($output_filename);
+        return $pdf->inline("{$resource->code}.pdf");
     }
 }

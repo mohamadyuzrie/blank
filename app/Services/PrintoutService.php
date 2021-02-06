@@ -4,7 +4,7 @@ namespace App\Services;
 
 use PDF;
 
-class Printout
+class PrintoutService
 {
     public static function generate($view, $data,
         $header = null, $footer = null, $options = [],
@@ -31,7 +31,7 @@ class Printout
         return $pdf;
     }
 
-    public static function standardFooter($print_date, $footer_height = '15mm')
+    public static function statictandardFooter($print_date, $footer_height = '15mm')
     {
         return [
             'footer-left' => "Print Date {$print_date}",
@@ -41,5 +41,17 @@ class Printout
             'footer-right' => "Page [page] from [topage]",
             'margin-bottom' => $footer_height,
         ];
+    }
+
+    public static function useStandardFooter($pdf, $print_date, $footer_height = '15mm')
+    {
+        $pdf->setOption('footer-left', "Print Date {$print_date}");
+        $pdf->setOption('footer-line', true);
+        $pdf->setOption('footer-font-size', 8);
+        $pdf->setOption('footer-font-name', 'sans-serif');
+        $pdf->setOption('footer-right', "Page [page] from [topage]");
+        $pdf->setOption('margin-bottom', $footer_height);
+
+        return $pdf;
     }
 }
